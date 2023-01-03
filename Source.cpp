@@ -69,13 +69,13 @@ private:
 
 int main()
 {
-    Cache cache(128, 512);	  // tamanyo y numero de lineas
+    Cache cache(128, 512);    // tamanyo y numero de lineas
 
     cache.setVector(524288);  // numero elementos del vector
 
     cache.simulateLoop(0, 2); // inicia en 0 con incrementos de 2
 
-    cache.showResults();	  // mostrar resultados
+    cache.showResults();      // mostrar resultados
 
     return 0;
 }
