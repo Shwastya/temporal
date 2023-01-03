@@ -28,7 +28,7 @@ public:
 
           if (_bytesCount >= 128 || i == 0)  // pasamos de los 128 B o iniciamos primera carga en cache
           {
-		     ++_miss;                        // tenemos un miss
+             ++_miss;                        // tenemos un miss
 
              if (i > 0) _bytesCount = 0;     // reiniciamos contador de Bytes
 
