@@ -12,25 +12,23 @@ public:
 
     ~Cache() = default;
 
-    void setVector(const size_t num) 
-    {
+    void setVector(const size_t num) {
        _iterations = num; 
-	}
+    }
 
-    void simulateLoop(const uint32_t init, const uint32_t incrm)
-    {
+    void simulateLoop(const uint32_t init, const uint32_t incrm) {
+
        _increment = incrm; // guardamos el incremento para calculos		
 
        /* cache Loop simulation */		
-
        for (uint32_t i = init; i < _iterations; i += incrm)
        {
           if (i == 0) _bytesCount += sizeof(i);
           else _bytesCount += sizeof(i) * incrm;	
 
           if (_bytesCount >= 128 || i == 0)  // pasamos de los 128 B o iniciamos primera carga en cache
-		  {
-		     ++_miss;					     // tenemos un miss
+          {
+		     ++_miss;                        // tenemos un miss
 
              if (i > 0) _bytesCount = 0;     // reiniciamos contador de Bytes
 
@@ -62,6 +60,7 @@ public:
        std::cout << "   Hit                 : " << _hit << "\n";
        std::cout << "   Miss                : " << _miss << "\n";
     }
+
 private:
     uint32_t _bytesCount{ 0 }, _BytesBylines{ 0 }, _nLines{ 0 }, _limitCache{ 0 };
     uint32_t _iterations{ 0 }, _increment{ 0 }, _elements{ 0 }, _LRUcount{ 0 };
@@ -78,5 +77,5 @@ int main()
 
     cache.showResults();	  // mostrar resultados
 
-	return 0;
+    return 0;
 }
